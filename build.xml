@@ -1,0 +1,31 @@
+<project name="myproj" basedir="." default="all">
+<property name="bus" value="rtc, volvo, private"/>
+<property name="num" value="1,2,3,4,5,6,7,8,9"/>
+
+<!-- this is first target -->
+<target name="maths">
+<echo>the numbers are: ${num}</echo>
+</target> 
+
+<target name="first" depends="maths">
+<echo message="first class: 10"/>
+</target>
+
+<target name="second" depends="first">
+<echo message="second class: 20"/>
+</target>
+
+<target name="total" depends="second">
+<echo message="total number of students."/>
+</target>
+
+<target name="vehicle" depends="total">
+<echo message="my buses are ${bus}"/>
+</target> 
+
+<target name="all" depends="vehicle">
+<echo message="this is antcall."/>
+<antcall target="total"/>
+</target>
+
+</project>
