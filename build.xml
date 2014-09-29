@@ -23,14 +23,18 @@
 <echo message="my buses are ${bus}"/>
 </target> 
 
-<target name="all" depends="vehicle">
-<echo message="this is antcall."/>
-<antcall target="total"/>
-</target>
-
+<target name="compile" depends="vehicle">
 <javac srcdir="com/test"
          destdir="com/test"
          classpath="final.jar"
          debug="on"
 		 includeantruntime="false"/>
+</target>
+
+<target name="all" depends="compile">
+<echo message="this is antcall."/>
+<antcall target="total"/>
+</target>
+
+
 </project>
