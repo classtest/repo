@@ -37,7 +37,20 @@
 		 includeantruntime="false"/>
 </target>
 
-<target name="unit" depends="compile">
+
+<target name="rununit" depends="compile">
+<junit printsummary="on">
+<test name="com.test.SimpleTest"/>
+<classpath>
+<pathelement location="com/test/junit-4.11.jar"/>
+<pathelement location="com/test"/>
+</classpath>
+</junit>
+
+</target>
+
+
+<target name="report-unit" depends="rununit">
 <junitreport todir="com/reports">
   <fileset dir="com/reports">
     <include name="TEST-*.xml"/>
@@ -49,7 +62,7 @@
 
 
 
-<target name="all" depends="unit">
+<target name="all" depends="report-unit">
 <echo message="this is antcall."/>
 <antcall target="total"/>
 </target>
