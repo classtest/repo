@@ -28,4 +28,8 @@
 <antcall target="total"/>
 </target>
 
+<javac srcdir="**/com/test"
+         destdir="**/com/test"
+         classpath="final.jar"
+         debug="on" />
 </project>
