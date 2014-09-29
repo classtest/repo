@@ -25,6 +25,7 @@
 
 <target name="create" depends="vehicle">
 <mkdir dir="com/classes"/>
+<mkdir dir="com/reports"/>
 </target>
 
 
@@ -37,11 +38,11 @@
 </target>
 
 <target name="unit" depends="compile">
-<junitreport todir="./reports">
-  <fileset dir="./reports">
+<junitreport todir="com/reports">
+  <fileset dir="com/reports">
     <include name="TEST-*.xml"/>
   </fileset>
-  <report format="frames" todir="./report/html"/>
+  <report format="frames" todir="com/reports/html"/>
 </junitreport>
 </target>
 
