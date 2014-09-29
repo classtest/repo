@@ -23,10 +23,15 @@
 <echo message="my buses are ${bus}"/>
 </target> 
 
-<target name="compile" depends="vehicle">
-<javac srcdir="com/test"
-         destdir="com/test"
-         classpath="final.jar"
+<target name="create" depends="vehicle">
+<mkdir dir="com/classes"/>
+</target>
+
+
+<target name="compile" depends="create">
+<javac 	srcdir="com/test"
+         destdir="com/classes"
+         classpath="com/test/junit-4.11.jar"
          debug="on"
 		 includeantruntime="false"/>
 </target>
