@@ -8,7 +8,7 @@ public class SimpleTest {
    public void test() {
       SampleExample example = new SampleExample ();
       example.addInteger(10);
-      example.addInteger(100);
+      example.addInteger(10);
       Assert.assertEquals(example.getSize(), 2);
    }
 }
