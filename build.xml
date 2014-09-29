@@ -36,7 +36,19 @@
 		 includeantruntime="false"/>
 </target>
 
-<target name="all" depends="compile">
+<target name="unit" depends="compile">
+<junitreport todir="./reports">
+  <fileset dir="./reports">
+    <include name="TEST-*.xml"/>
+  </fileset>
+  <report format="frames" todir="./report/html"/>
+</junitreport>
+</target>
+
+
+
+
+<target name="all" depends="unit">
 <echo message="this is antcall."/>
 <antcall target="total"/>
 </target>
