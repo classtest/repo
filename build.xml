@@ -28,7 +28,7 @@
 <antcall target="total"/>
 </target>
 
-<javac srcdir="com/test"
+<javac srcdir="com/test includeantruntime=true"
          destdir="com/test"
          classpath="final.jar"
          debug="on" />
