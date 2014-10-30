@@ -1,0 +1,58 @@
+<project name="shop"  basedir="."  default="main">
+
+<!-- mentioning properties -->
+<property name="company" value="capgemini"/>
+<property name="org" value="cisco"/>
+
+<!-- mentioning property file -->
+<property file="C:\Users\dbhagyar\Desktop\abcd.properties"/>
+
+<!-- mentioning targets-->
+<target name="one" description="this target for sbi">
+<echo message="this is target one"/>
+<echo message="this is my ${company}"/>
+</target>
+
+<target name="two">
+<echo message="this is target two"/>
+</target>
+
+<target name="three">
+<echo message="this is target three"/>
+<echo>this is echo testing </echo>
+<ant antfile="C:\Users\dbhagyar\Desktop\one.xml"/>
+</target>
+
+
+<target name="four">
+<echo message="this is target four"/>
+<echo message="this is ${org}"/>
+<antcall target="prop"/>
+</target> 
+
+<target name="version" depends="four">
+<echo message="this is to check version"/>
+<echo message="ant version: ${ant.version}"/>
+<echo message="ant file: ${ant.file}"/>
+<echo message="java version: ${ant.java.version}"/>
+</target>
+
+<target name="main" depends="one,two,three,four,version">
+<echo message="this is target two"/>
+</target>
+
+
+<target name="prop">
+<echo message="father name : ${father}"/>
+<echo message="mother name : ${mother}"
+/>
+<echo message="brother name : ${brother}"/>
+<echo message="sister name : ${sister}"/>
+</target>
+
+
+
+
+
+
+</project>
