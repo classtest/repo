@@ -32,7 +32,7 @@
 <target name="compile" depends="create">
 <javac 	srcdir="com/test"
          destdir="com/classes"
-         classpath="com/test/junit-4.11.jar"
+         classpath="com/lib/junit-4.11.jar"
          debug="on"
 		 includeantruntime="false"/>
 </target>
@@ -43,7 +43,7 @@
 <test name="com.test.SimpleTest"/>
 <test name="com.test.TestJunit"/>
 <classpath>
-<pathelement location="com/junit-4.11.jar"/>
+<pathelement location="com/lib/junit-4.11.jar"/>
 <pathelement location="com/test"/>
 </classpath>
 </junit>
