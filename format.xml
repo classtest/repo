@@ -36,7 +36,7 @@
       <formatter type="brief" usefile="false"/> -->
         <batchtest>
             <fileset dir="${main.build.dir}">
-		<includes="*.class"/>
+		<include name="*.class"/>
 	 </fileset>
         </batchtest>
 
