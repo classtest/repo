@@ -47,7 +47,7 @@
     </junit>
 
 	<junitreport todir="${test-reports.dir}">
-            <fileset dir="${test-reports.dir}" includes="*.xml"/>
+            <fileset dir="${test-reports.dir}" includes="TESTS-*.xml"/>
             <report todir="${test-reports.dir}"/>
         </junitreport>
 
