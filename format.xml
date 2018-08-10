@@ -60,7 +60,7 @@
         <mkdir dir="${test-reports.dir}"/>
         <junit haltonfailure="no" fork="true" printsummary="true">
             <formatter type="xml"/>
-        <!--    <test name="${testcase}" todir="${test-reports.dir}" if="testcase"/>
+            <test name="${testcase}" todir="${test-reports.dir}" if="testcase"/>
             <batchtest todir="${test-reports.dir}" unless="testcase">
                 <fileset dir="${test-classes.dir}">
                     <include name="**/newUi/**/*Test*.class"/>
@@ -68,7 +68,7 @@
                     <exclude name="**/*IntegrationTest.class"/>
                     <exclude name="**/*SystemTest.class"/>
                 </fileset>
-            </batchtest> -->
+            </batchtest>
             <classpath>
             	<path refid="classpath.test"/>
           	<pathelement location="${test.build.dir}"/>
