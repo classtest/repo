@@ -27,7 +27,7 @@
 
   <target name="test" depends="test-compile">
 	<mkdir dir="${test-reports.dir}"/>
-    <junit printsummary="on" haltonfailure="yes" fork="true">
+    <junit printsummary="on" haltonfailure="no" fork="true">
       <formatter type="xml"/>
       <!--  <classpath>
           <path refid="classpath.test"/>
