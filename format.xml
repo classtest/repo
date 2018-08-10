@@ -1,0 +1,88 @@
+<project name="junit-example">
+  <property name="main.build.dir" value="build/main"/>
+  <property name="main.src.dir" value="src/main/java"/>
+  <property name="test.build.dir" value="build/test"/>
+  <property name="test.src.dir" value="src/test/java"/>
+  <property name="test-reports.dir" location="dist/test-reports"/>
+
+
+  <path id="classpath.test">
+    <pathelement location="com/lib/junit-4.12.jar"/>
+    <pathelement location="com/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${main.build.dir}"/>
+  </path>
+
+  <target name="compile">
+    <mkdir dir="${main.build.dir}"/>
+    <javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false"/>
+  </target>
+
+  <target name="test-compile" depends="compile">
+    <mkdir dir="${test.build.dir}"/>
+    <javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
+        <classpath refid="classpath.test"/>
+    </javac>
+  </target>
+
+
+  <target name="test" depends="test-compile">
+	<mkdir dir="${test-reports.dir}"/>
+    <junit printsummary="on" haltonfailure="yes" fork="true">
+      <formatter type="xml"/>
+      <!--  <classpath>
+          <path refid="classpath.test"/>
+          <pathelement location="${test.build.dir}"/>
+        </classpath>
+      <formatter type="brief" usefile="false"/> -->
+        <batchtest>
+            <fileset dir="${main.build.dir}">
+		<includes="*.class"/>
+	 </fileset>
+        </batchtest>
+
+	   <classpath>
+          <path refid="classpath.test"/>
+          <pathelement location="${test.build.dir}"/>
+        </classpath>
+    </junit>
+
+	<junitreport todir="${test-reports.dir}">
+            <fileset dir="${test-reports.dir}" includes="*.xml"/>
+            <report todir="${test-reports.dir}"/>
+        </junitreport>
+
+
+  </target>
+	
+
+<!--
+<target name="test" description="Runs unit tests" depends="test-compile">
+        <mkdir dir="${test-reports.dir}"/>
+        <junit haltonfailure="no" fork="true" printsummary="true">
+            <formatter type="xml"/>
+        <!--    <test name="${testcase}" todir="${test-reports.dir}" if="testcase"/>
+            <batchtest todir="${test-reports.dir}" unless="testcase">
+                <fileset dir="${test-classes.dir}">
+                    <include name="**/newUi/**/*Test*.class"/>
+                    <exclude name="**/*$$*.class"/>
+                    <exclude name="**/*IntegrationTest.class"/>
+                    <exclude name="**/*SystemTest.class"/>
+                </fileset>
+            </batchtest> -->
+            <classpath>
+            	<path refid="classpath.test"/>
+          	<pathelement location="${test.build.dir}"/>
+	    </classpath>
+            <assertions>
+                <enable/>
+            </assertions>
+        </junit>
+        <junitreport todir="${test-reports.dir}">
+            <fileset dir="${test-reports.dir}" includes="TEST-*.xml"/>
+            <report todir="${test-reports.dir}"/>
+        </junitreport>
+    </target>
+-->
+
+
+</project>
