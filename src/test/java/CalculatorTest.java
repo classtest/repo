@@ -8,4 +8,10 @@ public class CalculatorTest {
     int sum = calculator.evaluate("1+2+3");
     assertEquals(6, sum);
   }
+
+	@Test
+	public void testAdd1Plus1() {
+		int y = 1;
+		assertEquals(0, myClass.add(null,y));
+	}
 }
