@@ -12,6 +12,6 @@ public class CalculatorTest {
 	@Test
 	public void testAdd1Plus1() {
 		int y = 1;
-		assertEquals(0, calculator.add(null,y));
+		assertEquals(0, y);
 	}
 }
