@@ -30,7 +30,7 @@
 	<formatter type="xml"/>
 	<batchtest todir="${target.report.dir}">
 		<fileset dir="${test.src.dir}">
-			<include name="*.java"/>
+			<include name="TestJunit.java"/>
 		</fileset>
 	</batchtest>
 	<classpath>
